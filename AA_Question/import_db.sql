@@ -65,3 +65,16 @@ VALUES
   ('Can we survive?', 'How can we survive in App Academy?', (SELECT id FROM users WHERE fname = 'David' AND lname = 'Song')),
   ('Nature', 'Do you enjoy being out in nature?', (SELECT id FROM users WHERE fname = 'Johnny' AND lname = 'Tae'));
 
+INSERT INTO
+  question_follows (user_id, question_id)
+VALUES
+  (SELECT id FROM users WHERE fname = 'David' AND lname = 'Song',
+  SELECT id FROM questions WHERE title = 'Can we survive?'),
+  (SELECT id FROM users WHERE fname = 'Johnny' AND lname = 'Tae',
+  SELECT id FROM questions WHERE title = 'Nature');
+
+-- INSERT INTO
+--   replies (question_id, parent_reply_id, author_id, body)
+-- VALUES
+--   (SELECT id FROM questions WHERE title = 'Can we survive?',
+--   SELECT id FROM replies, SELECT id FROM questions )
