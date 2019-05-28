@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS questions;
+DROP TABLE IF EXISTS question_follows;
+DROP TABLE IF EXISTS replies;
+DROP TABLE IF EXISTS question_likes;
+
 PRAGMA foreign__keys = ON;
 
 CREATE TABLE users
@@ -47,4 +53,15 @@ CREATE TABLE question_likes(
   FOREIGN KEY (question_id) REFERENCES question(id)
 );
 
-INSERT
+INSERT INTO
+  users (fname, lname)
+VALUES
+  ('David', 'Song'),
+  ('Johnny', 'Tae');
+
+INSERT INTO
+  questions (title, body, author_id)
+VALUES
+  ('Can we survive?', 'How can we survive in App Academy?', (SELECT id FROM users WHERE fname = 'David' AND lname = 'Song')),
+  ('Nature', 'Do you enjoy being out in nature?', (SELECT id FROM users WHERE fname = 'Johnny' AND lname = 'Tae'));
+
