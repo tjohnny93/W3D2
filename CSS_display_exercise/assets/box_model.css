@@ -4,6 +4,8 @@ body {
   /* If the user cannot load the Arial font, the sans-serif font is used */
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
+  width: 900px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -19,12 +21,16 @@ are children of an Unordered Lsit element */
 ul li a, figcaption a {
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
 /* This selector selects only IMMEDIATE (1 level deep) image element children
 of the header element */
 header > img {
   width: 100px;
+}
+header {
+  background-color: rgb(101, 194, 101);
 }
 
 /* Selects all elements with the class attribute "ingredients-list" */
@@ -34,7 +40,7 @@ header > img {
   list-style: square inside;
 }
 
-ol {
+ol { 
   list-style: upper-roman inside;
 }
 
@@ -72,3 +78,11 @@ h2 + .user_review {
     border-top: 1px solid black;
 }
 
+.navigate_list {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  border : 1px solid black;
+  background-color: yellow;
+}
